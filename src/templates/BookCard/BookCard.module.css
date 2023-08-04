@@ -1,0 +1,28 @@
+/* .cardTemplate {
+  width: 18rem;
+  height: 36rem;
+  background: red;
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+} */
+
+
+.buttons{
+  display:flex;
+  justify-content:space-between;
+}
+
+
+.cartButton{
+    background: #28a745 ;
+    border: grey;
+}
+
+.cartButton:hover{
+  background: #4caf50;
+}
+
+.cartButton:active{
+  background: #1e8449;
+}
