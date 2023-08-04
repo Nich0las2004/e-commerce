@@ -1,12 +1,20 @@
-.active {
-  text-decoration: none;
-  color: white;
-}
-
 .navBarBody {
   margin-bottom: 3rem;
+  font-family:sans-serif;
 }
 
-/* .navBarContainer{
+.link {
+  text-decoration: none;
+  color:white;
+  padding:.5rem;
+}
 
-} */
+.active{
+  text-decoration:underline;
+  color:white;
+  padding:.5rem;
+}
+
+.link:hover{
+  color:lightgrey;
+}
