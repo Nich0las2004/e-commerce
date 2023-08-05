@@ -16,62 +16,51 @@ const NavBar = () => {
     <>
       <Navbar className={classes.navBarBody} bg="dark" data-bs-theme="dark">
         <Container className={classes.navBarContainer}>
-          <Navbar.Brand>
-            <NavLink
-              className={() =>
-                path === "/home" ? classes.active : classes.link
-              }
-              to="/home"
-            >
-              Books
-            </NavLink>
-          </Navbar.Brand>
+          <NavLink
+            className={() => (path === "/home" ? classes.active : classes.link)}
+            to="/home"
+          >
+            Books
+          </NavLink>
+
           <Nav className="me-auto">
-            <Navbar.Brand>
-              <NavLink
-                className={(navData) =>
-                  navData.isActive ? classes.active : classes.link
-                }
-                to="/home/fantasy"
-              >
-                <li>Fantasy</li>
-              </NavLink>
-            </Navbar.Brand>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? classes.active : classes.link
+              }
+              to="/home/fantasy"
+            >
+              <li>Fantasy</li>
+            </NavLink>
 
-            <Navbar.Brand>
-              <NavLink
-                className={(navData) =>
-                  navData.isActive ? classes.active : classes.link
-                }
-                to="/home/adventure"
-              >
-                <li>Adventure</li>
-              </NavLink>
-            </Navbar.Brand>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? classes.active : classes.link
+              }
+              to="/home/adventure"
+            >
+              <li>Adventure</li>
+            </NavLink>
 
-            <Navbar.Brand>
-              <NavLink
-                className={(navData) =>
-                  navData.isActive ? classes.active : classes.link
-                }
-                to="/home/classics"
-              >
-                <li>Classics</li>
-              </NavLink>
-            </Navbar.Brand>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? classes.active : classes.link
+              }
+              to="/home/classics"
+            >
+              <li>Classics</li>
+            </NavLink>
 
-            <Navbar.Brand>
-              <NavLink
-                className={(navData) =>
-                  navData.isActive ? classes.active : classes.link
-                }
-                to="/home/science-fiction"
-              >
-                <li>Science Fiction</li>
-              </NavLink>
-            </Navbar.Brand>
+            <NavLink
+              className={(navData) =>
+                navData.isActive ? classes.active : classes.link
+              }
+              to="/home/science-fiction"
+            >
+              <li>Science Fiction</li>
+            </NavLink>
           </Nav>
-          <button>Log In</button>
+
         </Container>
       </Navbar>
       <Outlet />
