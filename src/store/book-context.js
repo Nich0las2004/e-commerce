@@ -1,10 +1,20 @@
-import { createContext } from "react"
+import { createContext } from "react";
 
-const BookContext = createContext({
-    quantity: 0,
-    title: '',
-    price: 0,
-    totalPrice: 0,
-})
+const initialState = {
+  quantity: 0,
+  title: "",
+  price: 0,
+  totalPrice: 0,
+};
 
-export default BookContext
+const BookContext = createContext(initialState);
+
+export const BookContextProvider = (props) => {
+  return (
+    <BookContext.Provider value={props.quantity}>
+      {props.children}
+    </BookContext.Provider>
+  );
+};
+
+export default BookContext;

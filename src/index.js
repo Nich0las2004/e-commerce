@@ -5,10 +5,13 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 import App from "./App";
+import { BookContextProvider } from "./store/book-context";
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+
+      <App />
+
   </BrowserRouter>,
   document.getElementById("root")
 );

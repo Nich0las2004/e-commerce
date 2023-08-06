@@ -5,8 +5,7 @@ import classes from "./NavBar.module.css";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Button from "react-bootstrap/Button";
-import { BsCart } from "react-icons/bs";
+import NavBarButton from "./NavBarButton/NavBarButton";
 
 const NavBar = () => {
   const location = useLocation();
@@ -62,9 +61,7 @@ const NavBar = () => {
             </NavLink>
           </Nav>
 
-          <button className={classes.cartBtn} style={{ background: "red" }}>
-            <BsCart /> <span>0</span>
-          </button>
+          <NavBarButton />
         </Container>
       </Navbar>
       <Outlet />

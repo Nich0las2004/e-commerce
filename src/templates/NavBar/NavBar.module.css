@@ -24,10 +24,3 @@
 .link:hover {
   color: lightgrey;
 }
-
-.cartBtn {
-  width: 8rem;
-  height: 3rem;
-  border:none;
-  border-radius:20px;
-}

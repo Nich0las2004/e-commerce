@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState, Fragment, useContext } from "react";
 
 import classes from "./BookCard.module.css";
 
@@ -11,9 +11,10 @@ import { BsBagPlusFill } from "react-icons/bs";
 const BookCard = (props) => {
   const [showDetails, setShowDetails] = useState(false);
 
+  const wrapTitle = props.title.length > 20 ? `${props.title.slice(0,21)}...` : props.title
+
   const handleCloseDetails = () => setShowDetails(false);
   const handleShowDetails = () => setShowDetails(true);
-
 
   return (
     <Fragment>
@@ -22,18 +23,17 @@ const BookCard = (props) => {
       <Card className={classes.cardTemplate}>
         <Card.Img className={classes.bookImage} variant="top" src={props.url} />
         <Card.Body className={classes.cardTextAndButtons}>
-          <Card.Title>{props.title}</Card.Title>
+          {/* <Card.Title>{props.title}</Card.Title> */}
+          <Card.Title>{wrapTitle}</Card.Title>
           <div className={classes.buttons}>
             <Button onClick={handleShowDetails} variant="primary">
               View Details
             </Button>
-            <Button
-              // onClick={handleShowBuyBtn}
-              className={classes.cartButton}
-              variant="primary"
-            >
+            <Button 
+            className={classes.cartButton} 
+            variant="primary">
               Buy{" "}
-              <Badge >
+              <Badge>
                 <BsBagPlusFill />
               </Badge>
             </Button>
