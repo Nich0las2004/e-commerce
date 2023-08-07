@@ -1,6 +1,9 @@
-import { useState, Fragment, useContext } from "react";
+import { useState, Fragment } from "react";
+import { useDispatch } from "react-redux";
 
 import classes from "./BookCard.module.css";
+
+import { buttonActions } from "../../store";
 
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
@@ -9,12 +12,19 @@ import Badge from "react-bootstrap/Badge";
 import { BsBagPlusFill } from "react-icons/bs";
 
 const BookCard = (props) => {
-  const [showDetails, setShowDetails] = useState(false);
+  const dispatch = useDispatch();
 
-  const wrapTitle = props.title.length > 20 ? `${props.title.slice(0,21)}...` : props.title
+  const [showDetails, setShowDetails] = useState(false);
 
   const handleCloseDetails = () => setShowDetails(false);
   const handleShowDetails = () => setShowDetails(true);
+
+  const wrapTitle =
+    props.title.length > 20 ? `${props.title.slice(0, 21)}...` : props.title;
+
+  const handleBuyButton = () => {
+    dispatch(buttonActions.increment());
+  };
 
   return (
     <Fragment>
@@ -29,9 +39,12 @@ const BookCard = (props) => {
             <Button onClick={handleShowDetails} variant="primary">
               View Details
             </Button>
-            <Button 
-            className={classes.cartButton} 
-            variant="primary">
+            <Button
+              type="button"
+              onClick={handleBuyButton}
+              className={classes.cartButton}
+              variant="primary"
+            >
               Buy{" "}
               <Badge>
                 <BsBagPlusFill />
