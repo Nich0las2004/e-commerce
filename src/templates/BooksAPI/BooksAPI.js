@@ -118,6 +118,53 @@ const BooksAPI = [
     genre: "fantasy",
     id: 17,
   },
+  {
+    title: "Treasure Island",
+    text: `"Treasure Island" is a classic adventure novel by Robert Louis Stevenson, first published in 1882. The story follows young Jim Hawkins as he embarks on a perilous journey to find the legendary pirate Captain Flint's buried treasure. Set amidst treacherous seas, hidden maps, and a crew of swashbuckling pirates led by the cunning Long John Silver, the novel is a timeless tale of greed, bravery, and the allure of the unknown. With vivid characters, thrilling escapades, and a captivating portrayal of life on the high seas, "Treasure Island" has captured the imaginations of readers for generations. The novel's themes of morality, trust, and the duality of human nature continue to resonate, making it a beloved classic in the realm of adventure literature.`,
+    url: "https://cdn.kobo.com/book-images/08bb082e-e9d4-492e-b2ae-ee04233dbc33/1200/1200/False/treasure-island-450.jpg",
+    genre: "adventure",
+    id: 18,
+  },
+  {
+    title: "Pride and Prejudice",
+    text: `"Pride and Prejudice" is a timeless romantic novel by Jane Austen, published in 1813. Set in Regency-era England, the story revolves around Elizabeth Bennet, an intelligent and spirited young woman, and Mr. Darcy, a wealthy and reserved gentleman. Their initial misunderstandings and societal pressures create a backdrop of wit, humor, and social commentary. As the plot unfolds, Austen masterfully explores themes of class, marriage, and personal growth. The novel's sharp characterizations, witty dialogue, and intricate relationships make it a delightful exploration of human nature. Through Elizabeth's journey of self-discovery and Mr. Darcy's transformation, "Pride and Prejudice" remains a cherished classic that continues to captivate readers with its enduring charm and exploration of love, family, and the complexities of societal expectations.`,
+    url: "https://almabooks.com/wp-content/uploads/2016/10/9781847493699.jpg",
+    genre: "classics",
+    id: 19,
+  },
+  {
+    title: "The Great Gatsby",
+    text: `"The Great Gatsby" is a classic novel by F. Scott Fitzgerald, published in 1925. Set during the Roaring Twenties, the story follows the enigmatic millionaire Jay Gatsby and his obsession with the elusive Daisy Buchanan. Through the eyes of Nick Carraway, the narrator and Daisy's cousin, the novel delves into themes of wealth, social status, and the American Dream. Gatsby's extravagant parties and his unrequited love for Daisy reveal a world of excess and disillusionment.
+
+    Fitzgerald's evocative prose captures the extravagance and decadence of the Jazz Age, while also exposing the emptiness that can lie beneath the surface. The characters' desires and aspirations clash with the reality of their lives, highlighting the fragility of dreams and the complexities of human relationships.
+    
+    "The Great Gatsby" is a poignant exploration of the pursuit of happiness, the seductive allure of the past, and the inevitable collision of dreams with reality. Its exploration of wealth, love, and the human condition has cemented its place as a quintessential American novel that continues to resonate with readers today.`,
+    url: "https://i0.wp.com/americanwritersmuseum.org/wp-content/uploads/2018/02/CK-3.jpg?resize=267%2C400&ssl=1",
+    genre: "classics",
+    id: 20,
+  },
+  {
+    title: "Fahrenheit 451",
+    text: `"Fahrenheit 451" is a dystopian novel written by Ray Bradbury and published in 1953. Set in a future society where books are banned and "firemen" burn them to suppress dissenting ideas, the story follows Guy Montag, a fireman who begins to question the oppressive regime. As Montag seeks knowledge and meaning, he encounters a group of rebels who preserve books and aim to revive critical thinking.
+
+    Bradbury's thought-provoking exploration of censorship, conformity, and the power of literature is a chilling commentary on the potential dangers of a society that suppresses intellectual freedom. The novel's title refers to the temperature at which paper ignites, symbolizing the destructive forces that threaten to consume knowledge and individuality.
+    
+    Through Montag's transformation from enforcer to advocate for intellectual freedom, "Fahrenheit 451" serves as a cautionary tale about the importance of preserving ideas and challenging societal norms. The novel's themes and warnings remain relevant in our modern world, making it a powerful and enduring work of speculative fiction.`,
+    url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Fahrenheit_451_1st_ed_cover.jpg/220px-Fahrenheit_451_1st_ed_cover.jpg",
+    genre: "science fiction",
+    id: 21,
+  },
+  {
+    title: "The Martian Chronicles",
+    text: `"The Martian Chronicles" is a science fiction classic written by Ray Bradbury and published in 1950. It is a collection of interconnected short stories that chronicle humanity's attempts to colonize and interact with Mars. Set in a future where Earthlings seek to escape a troubled world, the stories reveal the complex relationship between humans and the enigmatic Martians.
+
+    Bradbury's poetic and evocative prose captures the wonder, mystery, and challenges of space exploration. The stories touch on themes of colonization, cultural clashes, loneliness, and the human desire for exploration and connection. As the settlers grapple with their own desires and the legacy of their species, they come to realize that Mars is both a physical and metaphorical frontier.
+    
+    "The Martian Chronicles" offers a blend of science fiction, fantasy, and social commentary, inviting readers to reflect on the consequences of human actions and the potential for both triumph and tragedy in our quest for discovery. Bradbury's exploration of Mars becomes a mirror through which we examine our own humanity and the impact we have on the worlds we encounter.`,
+    url: "https://m.media-amazon.com/images/I/71L+jk0eCuL._AC_UF1000,1000_QL80_.jpg",
+    genre: "science fiction",
+    id: 22,
+  },
 ];
 
 export default BooksAPI;

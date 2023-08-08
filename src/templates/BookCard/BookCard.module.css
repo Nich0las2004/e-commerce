@@ -3,12 +3,15 @@
 }
 
 .cardTemplate {
+  /* width: 100%; */
   width: 18rem;
   margin: 1rem;
 }
 
 /* .bookImage{
-  width:15rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 } */
 
 .buttons{

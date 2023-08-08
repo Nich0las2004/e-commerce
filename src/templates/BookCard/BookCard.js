@@ -22,7 +22,7 @@ const BookCard = (props) => {
   const wrapTitle =
     props.title.length > 20 ? `${props.title.slice(0, 21)}...` : props.title;
 
-  const handleBuyButton = () => {
+  const handleAddButton = () => {
     dispatch(buttonActions.increment());
   };
 
@@ -41,11 +41,11 @@ const BookCard = (props) => {
             </Button>
             <Button
               type="button"
-              onClick={handleBuyButton}
+              onClick={handleAddButton}
               className={classes.cartButton}
               variant="primary"
             >
-              Buy{" "}
+              Add{" "}
               <Badge>
                 <BsBagPlusFill />
               </Badge>
