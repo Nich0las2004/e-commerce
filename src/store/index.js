@@ -2,6 +2,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   books: 0,
+  title: []
 };
 
 const booksSlice = createSlice({
@@ -11,6 +12,9 @@ const booksSlice = createSlice({
     increment(state) {
       state.books++;
     },
+    bookTitle(state, action){
+      state.title.push(action.payload)
+    }
   },
 });
 

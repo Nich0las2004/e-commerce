@@ -1,6 +1,6 @@
 const BooksAPI = [
   {
-    title: "A Game of Thrones ",
+    title: "A Game of Thrones",
     text: "A Game of Thrones is the first novel in A Song of Ice and Fire, a series of fantasy novels by American author George R. R. Martin. It was first published on August 1, 1996. In the novel, recounting events from various points of view, Martin introduces the plot-lines of the noble houses of Westeros, the Wall, and the Targaryens.",
     url: "https://upload.wikimedia.org/wikipedia/en/9/93/AGameOfThrones.jpg",
     genre: "fantasy",
