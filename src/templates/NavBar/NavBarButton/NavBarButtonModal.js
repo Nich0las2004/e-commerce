@@ -1,25 +1,38 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./NavBarButtonModal.module.css";
+import { buttonActions } from "../../../store";
 
 const NavBarButtonModal = (props) => {
+  const dispatch = useDispatch();
+
   const booksCount = useSelector((state) => state.books.books);
   const bookTitle = useSelector((state) => state.books.title);
+  // const bookQuantity = useSelector(state => state.books.quantity)
+
+  const incrementBookQuantityHandler = () => {
+    dispatch(buttonActions.increment());
+  };
+
+  const decrementBookQuantityHandler = () => {
+    dispatch(buttonActions.decrement());
+  };
 
   // only unique values in an array
 
-  const bookTitlesArray = [...new Set(bookTitle)]
+  const bookTitlesArray = [...new Set(bookTitle)];
 
   // display unique values
 
-  const uniqueChosenBooks = bookTitlesArray.map(book => <li>{book}</li>)
-
-  const timesBookWasAdded = 0
-
-  console.log(bookTitlesArray)
-
+  const uniqueChosenBooks = bookTitlesArray.map((book) => (
+    <li>
+      {book} <span>{0}</span>{" "}
+      <button onClick={incrementBookQuantityHandler}>+</button>{" "}
+      <button onClick={decrementBookQuantityHandler}>-</button>
+    </li>
+  ));
 
   return (
     <Modal
@@ -35,10 +48,8 @@ const NavBarButtonModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         <p>
-          {bookTitle.length}
-          {/* {booksCount} */}
+          {booksCount >= 0 && booksCount}
           {uniqueChosenBooks}
-          {/* {bookTitle.map((book) => <li>{book}</li>)} */}
         </p>
       </Modal.Body>
       <Modal.Footer>

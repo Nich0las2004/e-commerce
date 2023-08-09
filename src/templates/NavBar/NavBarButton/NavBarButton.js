@@ -20,10 +20,7 @@ const NavBarButton = () => {
       <button onClick={cartClickHandler} className={classes.button}>
         <BsCart /> <Badge className={classes.allBooks}>{booksCount}</Badge>
       </button>
-      <NavBarButtonModal
-        show={modalShow}
-        onHide={() => setModalShow(false)}
-      />
+      <NavBarButtonModal show={modalShow} onHide={() => setModalShow(false)} />
     </Fragment>
   );
 };
