@@ -8,7 +8,7 @@ import BooksAPI from "../templates/BooksAPI/BooksAPI";
 const ScienceFiction = () => {
   return (
     <Container>
-      <Row>
+      <Row style={{justifyContent: 'center'}}>
         {BooksAPI.filter((obj) => obj.genre === "science fiction").map(
           (book) => (
             <BookCard

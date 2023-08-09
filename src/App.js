@@ -31,7 +31,7 @@ const App = () => {
             <>
               <NavBar />
               <Container>
-                <Row>{exactPath === '/home' && displayingBooks}</Row>
+                <Row style={{justifyContent: 'center'}}>{exactPath === '/home' && displayingBooks}</Row>
               </Container>
             </>
           }

@@ -8,7 +8,7 @@ import BooksAPI from "../templates/BooksAPI/BooksAPI";
 const Adventure = () => {
   return (
     <Container>
-      <Row>
+      <Row style={{justifyContent: 'center'}}>
         {BooksAPI.filter((obj) => obj.genre === "adventure").map((book) => (
           <BookCard
             key={book.id}
