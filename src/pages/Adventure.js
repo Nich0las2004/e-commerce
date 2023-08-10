@@ -4,8 +4,11 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import BooksAPI from "../templates/BooksAPI/BooksAPI";
+import { useEffect } from "react";
 
 const Adventure = () => {
+
+
   return (
     <Container>
       <Row style={{justifyContent: 'center'}}>

@@ -4,8 +4,14 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 
 import BooksAPI from "../templates/BooksAPI/BooksAPI";
+import { useEffect } from "react";
 
 const Classics = () => {
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
+
   return (
     <Container>
       <Row style={{justifyContent: 'center'}}>
