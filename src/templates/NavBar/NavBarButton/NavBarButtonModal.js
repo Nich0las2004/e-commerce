@@ -8,9 +8,11 @@ import { buttonActions } from "../../../store";
 const NavBarButtonModal = (props) => {
   const dispatch = useDispatch();
 
+  const booksQuantity = useSelector((state) => state.books.quantity);
+
   const booksCount = useSelector((state) => state.books.books);
+  // book titles (array)
   const bookTitle = useSelector((state) => state.books.title);
-  // const bookQuantity = useSelector(state => state.books.quantity)
 
   const incrementBookQuantityHandler = () => {
     dispatch(buttonActions.increment());
@@ -28,7 +30,7 @@ const NavBarButtonModal = (props) => {
 
   const uniqueChosenBooks = bookTitlesArray.map((book) => (
     <li>
-      {book} <span>{0}</span>{" "}
+      {book} <span>{1}</span>{" "}
       <button onClick={incrementBookQuantityHandler}>+</button>{" "}
       <button onClick={decrementBookQuantityHandler}>-</button>
     </li>
@@ -50,6 +52,13 @@ const NavBarButtonModal = (props) => {
         <p>
           {booksCount >= 0 && booksCount}
           {uniqueChosenBooks}
+          {/* {bookTitle.map((book) => (
+            <li>
+              {book} <span>{0}</span>{" "}
+              <button onClick={incrementBookQuantityHandler}>+</button>{" "}
+              <button onClick={decrementBookQuantityHandler}>-</button>
+            </li>
+          ))} */}
         </p>
       </Modal.Body>
       <Modal.Footer>

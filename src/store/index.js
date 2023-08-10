@@ -3,7 +3,7 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 export const initialState = {
   books: 0,
   title: [],
-  // quantity: [],
+  quantity: [],
 };
 
 const booksSlice = createSlice({
@@ -19,9 +19,9 @@ const booksSlice = createSlice({
     bookTitle(state, action) {
       state.title.push(action.payload);
     },
-    // bookQuantity(state, action) {
-    //   state.quantity.push(action.payload);
-    // },
+    bookQuantity(state, action) {
+      state.quantity.push();
+    },
   },
 });
 
