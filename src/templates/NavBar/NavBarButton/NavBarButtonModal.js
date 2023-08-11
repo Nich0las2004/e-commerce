@@ -4,37 +4,37 @@ import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./NavBarButtonModal.module.css";
 import { buttonActions } from "../../../store";
+import { useState, useEffect } from "react";
 
 const NavBarButtonModal = (props) => {
   const dispatch = useDispatch();
 
-  const booksQuantity = useSelector((state) => state.books.quantity);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const bookTitleAndPrice = useSelector(
+    (state) => state.books.bookTitleAndPrice
+  );
+
+  useEffect(() => {
+    let sum = 0;
+
+    bookTitleAndPrice.forEach((obj) => {
+      sum += obj.price;
+    });
+
+    setTotalPrice(sum);
+  }, [bookTitleAndPrice]);
 
   const booksCount = useSelector((state) => state.books.books);
-  // book titles (array)
-  const bookTitle = useSelector((state) => state.books.title);
 
   const incrementBookQuantityHandler = () => {
     dispatch(buttonActions.increment());
   };
-
   const decrementBookQuantityHandler = () => {
     dispatch(buttonActions.decrement());
   };
 
-  // only unique values in an array
-
-  const bookTitlesArray = [...new Set(bookTitle)];
-
-  // display unique values
-
-  const uniqueChosenBooks = bookTitlesArray.map((book) => (
-    <li>
-      {book} <span>{1}</span>{" "}
-      <button onClick={incrementBookQuantityHandler}>+</button>{" "}
-      <button onClick={decrementBookQuantityHandler}>-</button>
-    </li>
-  ));
+  const uniqueBookTitleArray = [...new Set(bookTitleAndPrice.map(obj => obj.title))]
 
   return (
     <Modal
@@ -51,14 +51,14 @@ const NavBarButtonModal = (props) => {
       <Modal.Body>
         <p>
           {booksCount >= 0 && booksCount}
-          {uniqueChosenBooks}
-          {/* {bookTitle.map((book) => (
-            <li>
-              {book} <span>{0}</span>{" "}
-              <button onClick={incrementBookQuantityHandler}>+</button>{" "}
-              <button onClick={decrementBookQuantityHandler}>-</button>
-            </li>
-          ))} */}
+          {bookTitleAndPrice.map((obj) => {
+            return (
+              <li key={obj.id}>
+                {obj.title} {`$${obj.price}`}
+              </li>
+            );
+          })}
+          {`Total Price: $${parseFloat(totalPrice).toFixed(2)}`}
         </p>
       </Modal.Body>
       <Modal.Footer>

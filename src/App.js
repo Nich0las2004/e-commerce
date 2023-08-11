@@ -16,7 +16,13 @@ const App = () => {
   const location = useLocation();
 
   const displayingBooks = BooksAPI.map((obj) => (
-    <BookCard key={obj.id} url={obj.url} title={obj.title} text={obj.text} />
+    <BookCard
+      key={obj.id}
+      url={obj.url}
+      title={obj.title}
+      text={obj.text}
+      price={obj.price}
+    />
   ));
 
   const exactPath = location.pathname;

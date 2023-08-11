@@ -22,6 +22,7 @@ const ScienceFiction = () => {
               url={book.url}
               title={book.title}
               text={book.text}
+              price={book.price}
             />
           )
         )}
