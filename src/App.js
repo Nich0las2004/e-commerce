@@ -1,4 +1,4 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 
 import Container from "react-bootstrap/Container";
@@ -19,7 +19,7 @@ const App = () => {
     <BookCard key={obj.id} url={obj.url} title={obj.title} text={obj.text} />
   ));
 
-  const exactPath = location.pathname
+  const exactPath = location.pathname;
 
   return (
     <Fragment>
@@ -31,7 +31,9 @@ const App = () => {
             <>
               <NavBar />
               <Container>
-                <Row style={{justifyContent: 'center'}}>{exactPath === '/home' && displayingBooks}</Row>
+                <Row style={{ justifyContent: "center" }}>
+                  {exactPath === "/home" && displayingBooks}
+                </Row>
               </Container>
             </>
           }

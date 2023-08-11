@@ -65,7 +65,7 @@ const BooksAPI = [
   {
     title: "Adventures of Huckleberry Finn",
     text: "The Adventures of Huckleberry Finn is a classic novel written by Mark Twain and first published in 1885. The story is narrated by Huckleberry Finn, a young boy who embarks on a series of adventures along the Mississippi River.",
-    url: "https://upload.wikimedia.org/wikipedia/commons/6/61/Huckleberry_Finn_book.JPG",
+    url: 'https://images.ucpress.edu/covers/isbn13/9780520343641.jpg',
     genre: "adventure",
     id: 10,
   },
@@ -86,14 +86,14 @@ const BooksAPI = [
   {
     title: "Nineteen Eighty-Four",
     text: '"Nineteen Eighty-Four" is a dystopian novel written by George Orwell and published in 1949. Set in a totalitarian society, the story takes place in the year 1984, where the world is under the rule of the Party led by Big Brother. The novel follows the life of Winston Smith, a low-ranking Party member working for the Ministry of Truth.',
-    url: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/1984first.jpg/220px-1984first.jpg",
+    url: "https://cdn.kobo.com/book-images/f9a7ae94-563e-43c6-8a59-f41bf8d65c2c/353/569/90/False/w6KNNZ4nxzSUmDrMgxBTXQ.jpg",
     genre: "science fiction",
     id: 13,
   },
   {
     title: "Dune",
     text: 'The story follows Paul Atreides, the young heir of House Atreides, who moves to Arrakis with his family to take control of the planet"s spice mining operations. As the political intrigue and power struggles unfold, Paul finds himself embroiled in a dangerous web of conspiracies and rivalries.',
-    url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/de/Dune-Frank_Herbert_%281965%29_First_edition.jpg/220px-Dune-Frank_Herbert_%281965%29_First_edition.jpg",
+    url: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1555447414i/44767458.jpg",
     genre: "science fiction",
     id: 14,
   },
@@ -146,7 +146,7 @@ const BooksAPI = [
     text: `"Fahrenheit 451" is a dystopian novel written by Ray Bradbury and published in 1953. Set in a future society where books are banned and "firemen" burn them to suppress dissenting ideas, the story follows Guy Montag, a fireman who begins to question the oppressive regime. As Montag seeks knowledge and meaning, he encounters a group of rebels who preserve books and aim to revive critical thinking.
     Bradbury's thought-provoking exploration of censorship, conformity, and the power of literature is a chilling commentary on the potential dangers of a society that suppresses intellectual freedom. The novel's title refers to the temperature at which paper ignites, symbolizing the destructive forces that threaten to consume knowledge and individuality.
     Through Montag's transformation from enforcer to advocate for intellectual freedom, "Fahrenheit 451" serves as a cautionary tale about the importance of preserving ideas and challenging societal norms. The novel's themes and warnings remain relevant in our modern world, making it a powerful and enduring work of speculative fiction.`,
-    url: "https://upload.wikimedia.org/wikipedia/en/thumb/d/db/Fahrenheit_451_1st_ed_cover.jpg/220px-Fahrenheit_451_1st_ed_cover.jpg",
+    url: "https://i.pinimg.com/originals/8c/09/d9/8c09d9fcb63e9bee8b462ffe27d7de18.png",
     genre: "science fiction",
     id: 21,
   },

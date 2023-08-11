@@ -7,11 +7,13 @@ import BooksAPI from "../templates/BooksAPI/BooksAPI";
 import { useEffect } from "react";
 
 const Adventure = () => {
-
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
 
   return (
     <Container>
-      <Row style={{justifyContent: 'center'}}>
+      <Row style={{ justifyContent: "center" }}>
         {BooksAPI.filter((obj) => obj.genre === "adventure").map((book) => (
           <BookCard
             key={book.id}

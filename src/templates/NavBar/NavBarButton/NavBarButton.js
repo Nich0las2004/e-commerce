@@ -5,11 +5,25 @@ import classes from "./NavBarButton.module.css";
 import NavBarButtonModal from "./NavBarButtonModal";
 
 import Badge from "react-bootstrap/Badge";
-import { useState, Fragment } from "react";
+import { useState, Fragment, useEffect, useRef } from "react";
 
 const NavBarButton = () => {
+  const [booksStateChanged, setBooksStateChanged] = useState(classes.button);
   const [modalShow, setModalShow] = useState(false);
   const booksCount = useSelector((state) => state.books.books);
+
+  const initialRender = useRef(true);
+
+  useEffect(() => {
+    if (initialRender.current) {
+      initialRender.current = false;
+    } else {
+      console.log("changed");
+      setTimeout(() => setBooksStateChanged(classes.buttonShake), 200);
+      setTimeout(() => setBooksStateChanged(classes.button), 400);
+      setTimeout(() => setBooksStateChanged(classes.button), 800);
+    }
+  }, [booksCount]);
 
   const cartClickHandler = () => {
     setModalShow(true);
@@ -17,7 +31,7 @@ const NavBarButton = () => {
 
   return (
     <Fragment>
-      <button onClick={cartClickHandler} className={classes.button}>
+      <button onClick={cartClickHandler} className={booksStateChanged}>
         <BsCart /> <Badge className={classes.allBooks}>{booksCount}</Badge>
       </button>
       <NavBarButtonModal show={modalShow} onHide={() => setModalShow(false)} />
