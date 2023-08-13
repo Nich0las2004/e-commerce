@@ -4,26 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./NavBarButtonModal.module.css";
 import { buttonActions } from "../../../store";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 
 const NavBarButtonModal = (props) => {
   const dispatch = useDispatch();
 
-  const [totalPrice, setTotalPrice] = useState(0);
+  const bookDetails = useSelector((state) => state.books.bookDetails);
 
-  const bookTitleAndPrice = useSelector(
-    (state) => state.books.bookTitleAndPrice
-  );
-
-  useEffect(() => {
-    let sum = 0;
-
-    bookTitleAndPrice.forEach((obj) => {
-      sum += obj.price;
-    });
-
-    setTotalPrice(sum);
-  }, [bookTitleAndPrice]);
+  const totalPrice = useSelector((state) => state.books.totalPrice);
 
   const booksCount = useSelector((state) => state.books.books);
 
@@ -34,7 +22,11 @@ const NavBarButtonModal = (props) => {
     dispatch(buttonActions.decrement());
   };
 
-  const uniqueBookTitleArray = [...new Set(bookTitleAndPrice.map(obj => obj.title))]
+  // new code
+
+  
+
+  // end new code
 
   return (
     <Modal
@@ -49,17 +41,9 @@ const NavBarButtonModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
-          {booksCount >= 0 && booksCount}
-          {bookTitleAndPrice.map((obj) => {
-            return (
-              <li key={obj.id}>
-                {obj.title} {`$${obj.price}`}
-              </li>
-            );
-          })}
-          {`Total Price: $${parseFloat(totalPrice).toFixed(2)}`}
-        </p>
+        {booksCount >= 0 && booksCount}
+        
+        <p>Total Price: ${totalPrice}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>

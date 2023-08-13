@@ -1,5 +1,5 @@
 import { useState, Fragment } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import classes from "./BookCard.module.css";
 
@@ -14,8 +14,6 @@ import { BsBagPlusFill } from "react-icons/bs";
 const BookCard = (props) => {
   const dispatch = useDispatch();
 
-  const bookTitleAndPrice = useSelector(state => state.books.bookTitleAndPrice)
-
   const [showDetails, setShowDetails] = useState(false);
 
   const handleCloseDetails = () => setShowDetails(false);
@@ -26,9 +24,8 @@ const BookCard = (props) => {
 
   const handleAddButton = () => {
     dispatch(buttonActions.increment());
-    dispatch(buttonActions.addBookTitleAndPrice({title: props.title, price: props.price, id: props.id}));
+    dispatch(buttonActions.addBookDetails({title: props.title, price: props.price}))
   };
-
 
   return (
     <Fragment>

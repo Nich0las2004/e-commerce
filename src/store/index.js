@@ -2,7 +2,8 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 export const initialState = {
   books: 0,
-  bookTitleAndPrice: []
+  totalPrice: 0,
+  bookDetails: [],
 };
 
 const booksSlice = createSlice({
@@ -15,8 +16,8 @@ const booksSlice = createSlice({
     decrement(state) {
       state.books--;
     },
-    addBookTitleAndPrice(state,action){
-      state.bookTitleAndPrice.push(action.payload)
+    addBookDetails(state, action){
+      state.bookDetails.push(action.payload)
     }
   },
 });

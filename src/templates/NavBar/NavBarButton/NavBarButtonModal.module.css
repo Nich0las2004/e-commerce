@@ -2,17 +2,21 @@
 
 } */
 
-.orderBtn{
-    width:6rem;
-    background:rgb(236, 158, 12);
-    border-color: rgb(236, 158, 12);
+* {
+  font-family: sans-serif;
 }
 
-.orderBtn:hover{
-    background: orange;
-    border-color: orange;
+.orderBtn {
+  width: 6rem;
+  background: rgb(236, 158, 12);
+  border-color: rgb(236, 158, 12);
 }
 
-.orderBtn:active{
-    background:orange;
+.orderBtn:hover {
+  background: orange;
+  border-color: orange;
+}
+
+.orderBtn:active {
+  background: orange;
 }

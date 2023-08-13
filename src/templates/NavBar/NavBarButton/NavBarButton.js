@@ -20,7 +20,6 @@ const NavBarButton = () => {
     } else {
       console.log("changed");
       setTimeout(() => setBooksStateChanged(classes.buttonShake), 200);
-      setTimeout(() => setBooksStateChanged(classes.button), 400);
       setTimeout(() => setBooksStateChanged(classes.button), 800);
     }
   }, [booksCount]);

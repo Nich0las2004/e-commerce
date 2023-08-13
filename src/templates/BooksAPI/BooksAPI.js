@@ -129,7 +129,7 @@ const BooksAPI = [
   },
   {
     title: "The Last Wish",
-    text: 'The Last Wish is the third published short story collection in Polish fantasy writer Andrzej Sapkowski"s The Witcher series. Published by SuperNowa in 1993, it was preceded by 1992"s Sword of Destiny, but is officially considered the first entry in the series and Sword of Destiny the second. The collection contains seven short stories interspersed with a continuing frame story: Geralt of Rivia, after having been injured in battle, rests in a temple. During that time he has flashbacks to recent events in his life, with each flashback forming a short story. The Last Wish was first published in English on 7 June 2007 by Gollancz, and has also been translated into several other languages. In 2003, it won the Premio Ignotus for Best Anthology',
+    text: 'The Last Wish is the third published short story collection in Polish fantasy writer Andrzej Sapkowski"s The Witcher series. Published by SuperNowa in 1993, it was preceded by 1992"s Sword of Destiny, but is officially considered the first entry in the series and Sword of Destiny the second. The collection contains seven short stories interspersed with a continuing frame story: Geralt of Rivia, after having been injured in battle, rests in a temple. During that time he has flashbacks to recent events in his life, with each flashback forming a short story. The Last Wish was first published in English on 7 June 2007 by Gollancz, and has also been translated into several other languages. In 2003, it won the Premio Ignotus for Best Anthology.',
     url: "https://anylang.net/sites/default/files/styles/book_image/public/covers/witcher-last-wish.jpg?itok=gAbjn5cr",
     genre: "fantasy",
     price: 8.99,
