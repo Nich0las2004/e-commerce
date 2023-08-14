@@ -18,7 +18,6 @@ const NavBarButton = () => {
     if (initialRender.current) {
       initialRender.current = false;
     } else {
-      console.log("changed");
       setTimeout(() => setBooksStateChanged(classes.buttonShake), 200);
       setTimeout(() => setBooksStateChanged(classes.button), 800);
     }
@@ -33,7 +32,7 @@ const NavBarButton = () => {
       <button onClick={cartClickHandler} className={booksStateChanged}>
         <BsCart /> <Badge className={classes.allBooks}>{booksCount}</Badge>
       </button>
-      <NavBarButtonModal show={modalShow} onHide={() => setModalShow(false)} />
+      <NavBarButtonModal show={modalShow} onHide={() => {setModalShow(false)}} />
     </Fragment>
   );
 };

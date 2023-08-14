@@ -18,8 +18,20 @@ const booksSlice = createSlice({
         state.books--;
       }
     },
+    removeBook(state,action){
+      state.books -= action.payload
+    },
     addBookDetails(state, action) {
       state.bookDetails.push(action.payload);
+    },
+    updateRepeat(state, action) {
+      const { title, repeat } = action.payload;
+      return {
+        ...state,
+        bookDetails: state.bookDetails.map((book) =>
+          book.title === title ? { ...book, repeat } : book
+        ),
+      };
     },
   },
 });

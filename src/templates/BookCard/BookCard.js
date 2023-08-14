@@ -14,6 +14,11 @@ import { BsBagPlusFill } from "react-icons/bs";
 const BookCard = (props) => {
   const dispatch = useDispatch();
 
+  // code
+  const [isClicked, setIsClicked] = useState(false);
+  const [addedToModal, setAddedToModal] = useState([]);
+  // end
+
   const [showDetails, setShowDetails] = useState(false);
 
   const handleCloseDetails = () => setShowDetails(false);
@@ -23,8 +28,19 @@ const BookCard = (props) => {
     props.title.length > 20 ? `${props.title.slice(0, 21)}...` : props.title;
 
   const handleAddButton = () => {
-    dispatch(buttonActions.increment());
-    dispatch(buttonActions.addBookDetails({title: props.title, price: props.price, repeat: 1}))
+    if (!addedToModal.includes(props.title)) {
+      dispatch(buttonActions.increment());
+      dispatch(
+        buttonActions.addBookDetails({
+          title: props.title,
+          price: props.price,
+          repeat: 1,
+        })
+      );
+      setAddedToModal((prevAdded) => [...prevAdded, props.title]);
+    } else {
+      setIsClicked(true);
+    }
   };
 
   return (
@@ -40,6 +56,7 @@ const BookCard = (props) => {
             <Button onClick={handleShowDetails} variant="primary">
               View Details
             </Button>
+            {isClicked && alert(`You can't click Add button second Time!`)}
             <Button
               type="button"
               onClick={handleAddButton}

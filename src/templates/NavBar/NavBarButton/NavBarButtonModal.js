@@ -1,38 +1,95 @@
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
+import { Fragment } from "react";
 
 import classes from "./NavBarButtonModal.module.css";
 import { buttonActions } from "../../../store";
-import { useEffect, useState } from "react";
 
 const NavBarButtonModal = (props) => {
   const dispatch = useDispatch();
-  
-  const bookDetails = useSelector((state) => state.books.bookDetails);
-  
-  const totalPrice = useSelector((state) => state.books.totalPrice);
-  const booksCount = useSelector((state) => state.books.books);
-  
 
-  const incrementBookQuantityHandler = () => {
+  const bookDetails = useSelector((state) => state.books.bookDetails);
+
+  // const uniqueBooks = [...new Set(bookDetails)]
+
+  const incrementBookQuantityHandler = (book) => {
+    const updatedRepeat = book.repeat + 1;
     dispatch(buttonActions.increment());
+    dispatch(
+      buttonActions.updateRepeat({ title: book.title, repeat: updatedRepeat })
+    );
   };
   const decrementBookQuantityHandler = (book) => {
+    const updatedRepeat = book.repeat - 1;
     dispatch(buttonActions.decrement());
+    dispatch(
+      buttonActions.updateRepeat({ title: book.title, repeat: updatedRepeat })
+    );
   };
 
-  const chosenBooks = bookDetails.map((obj) => {
+  const removeBookHandler = (book) => {
+    dispatch(buttonActions.updateRepeat({ title: book.title, repeat: 0 }));
+    dispatch(buttonActions.removeBook(book.repeat));
+  };
+
+  const uniqueBookDetails = bookDetails.filter(
+    (book, index, self) =>
+      index === self.findIndex((b) => b.title === book.title)
+  );
+
+  const chosenBooks = uniqueBookDetails.map((obj) => {
+    const fullPrice = (obj.price * obj.repeat).toFixed(2);
+
     return (
-      <div>
-        {obj.title}
-        {obj.repeat}
-        <button onClick={decrementBookQuantityHandler}>-</button>
-        {obj.price}
-        <button onClick={incrementBookQuantityHandler}>+</button>
-      </div>
+      <tr key={Math.random()}>
+        {obj.repeat > 0 && (
+          <Fragment>
+            <td> {obj.title}</td>
+            <td
+              style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "center",
+                top: 0,
+              }}
+            >
+              <button
+                className={classes.buttons}
+                type="button"
+                onClick={() => decrementBookQuantityHandler(obj)}
+              >
+                &minus;
+              </button>
+              {obj.repeat}
+
+              <button
+                className={classes.buttons}
+                type="button"
+                onClick={() => incrementBookQuantityHandler(obj)}
+              >
+                &#43;
+              </button>
+            </td>
+            <td> {fullPrice}</td>
+
+            <td>
+              {/* <button onClick={() => removeBookHandler(obj)}>remove</button> */}
+              <Button onClick={() => removeBookHandler(obj)} variant="danger">
+                Remove
+              </Button>{" "}
+            </td>
+          </Fragment>
+        )}
+      </tr>
     );
   });
+
+  const totalSelectedPrice = bookDetails.reduce(
+    (total, book) => total + book.price * book.repeat,
+    0
+  );
   return (
     <Modal
       {...props}
@@ -46,9 +103,19 @@ const NavBarButtonModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        {booksCount >= 0 && booksCount}
-        {chosenBooks}
-        <p>Total Price: ${totalPrice}</p>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody>{chosenBooks}</tbody>
+        </Table>
+
+        <p>Total Price: ${totalSelectedPrice.toFixed(2)}</p>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
