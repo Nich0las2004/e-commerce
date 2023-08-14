@@ -4,30 +4,35 @@ import { useDispatch, useSelector } from "react-redux";
 
 import classes from "./NavBarButtonModal.module.css";
 import { buttonActions } from "../../../store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const NavBarButtonModal = (props) => {
   const dispatch = useDispatch();
-
+  
   const bookDetails = useSelector((state) => state.books.bookDetails);
-
+  
   const totalPrice = useSelector((state) => state.books.totalPrice);
-
   const booksCount = useSelector((state) => state.books.books);
+  
 
   const incrementBookQuantityHandler = () => {
     dispatch(buttonActions.increment());
   };
-  const decrementBookQuantityHandler = () => {
+  const decrementBookQuantityHandler = (book) => {
     dispatch(buttonActions.decrement());
   };
 
-  // new code
-
-  
-
-  // end new code
-
+  const chosenBooks = bookDetails.map((obj) => {
+    return (
+      <div>
+        {obj.title}
+        {obj.repeat}
+        <button onClick={decrementBookQuantityHandler}>-</button>
+        {obj.price}
+        <button onClick={incrementBookQuantityHandler}>+</button>
+      </div>
+    );
+  });
   return (
     <Modal
       {...props}
@@ -42,7 +47,7 @@ const NavBarButtonModal = (props) => {
       </Modal.Header>
       <Modal.Body>
         {booksCount >= 0 && booksCount}
-        
+        {chosenBooks}
         <p>Total Price: ${totalPrice}</p>
       </Modal.Body>
       <Modal.Footer>

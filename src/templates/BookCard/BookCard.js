@@ -24,7 +24,7 @@ const BookCard = (props) => {
 
   const handleAddButton = () => {
     dispatch(buttonActions.increment());
-    dispatch(buttonActions.addBookDetails({title: props.title, price: props.price}))
+    dispatch(buttonActions.addBookDetails({title: props.title, price: props.price, repeat: 1}))
   };
 
   return (

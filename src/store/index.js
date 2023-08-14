@@ -14,11 +14,13 @@ const booksSlice = createSlice({
       state.books++;
     },
     decrement(state) {
-      state.books--;
+      if (state.books > 0) {
+        state.books--;
+      }
     },
-    addBookDetails(state, action){
-      state.bookDetails.push(action.payload)
-    }
+    addBookDetails(state, action) {
+      state.bookDetails.push(action.payload);
+    },
   },
 });
 
