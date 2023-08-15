@@ -1,25 +1,30 @@
-/* .orderBtn, .orderBtn:hover{
-
-} */
+.orderBtn,
+.orderBtn:active,
+.orderBtn:focus,
+.orderBtn:hover {
+  color: white !important;
+  width: 6rem;
+}
 
 * {
   font-family: sans-serif;
 }
 
-.orderBtn {
+/* .orderBtn {
   width: 6rem;
   background: rgb(236, 158, 12);
   border-color: rgb(236, 158, 12);
-}
+} */
 
-.orderBtn:hover {
+/* .orderBtn:hover {
   background: orange;
   border-color: orange;
-}
+} */
 
-.orderBtn:active {
+/* .orderBtn:active {
   background: orange;
-}
+  background:none;
+} */
 
 .buttons {
   width: 1.5rem;

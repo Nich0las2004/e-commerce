@@ -56,7 +56,7 @@ const BookCard = (props) => {
             <Button onClick={handleShowDetails} variant="primary">
               View Details
             </Button>
-            {isClicked && alert(`You can't click Add button second Time!`)}
+            {isClicked && alert(`You can't click "Add" button the second time!`)}
             <Button
               type="button"
               onClick={handleAddButton}

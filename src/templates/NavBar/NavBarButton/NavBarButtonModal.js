@@ -12,8 +12,6 @@ const NavBarButtonModal = (props) => {
 
   const bookDetails = useSelector((state) => state.books.bookDetails);
 
-  // const uniqueBooks = [...new Set(bookDetails)]
-
   const incrementBookQuantityHandler = (book) => {
     const updatedRepeat = book.repeat + 1;
     dispatch(buttonActions.increment());
@@ -43,16 +41,16 @@ const NavBarButtonModal = (props) => {
     const fullPrice = (obj.price * obj.repeat).toFixed(2);
 
     return (
-      <tr key={Math.random()}>
+      <tr key={Math.random()} style={{}}>
         {obj.repeat > 0 && (
           <Fragment>
             <td> {obj.title}</td>
             <td
               style={{
                 display: "flex",
-                justifyContent: "space-around",
+                flexDirection: "column",
+                justifyContent: "center",
                 alignItems: "center",
-                top: 0,
               }}
             >
               <button
@@ -72,10 +70,9 @@ const NavBarButtonModal = (props) => {
                 &#43;
               </button>
             </td>
-            <td> {fullPrice}</td>
+            <td>${fullPrice}</td>
 
             <td>
-              {/* <button onClick={() => removeBookHandler(obj)}>remove</button> */}
               <Button onClick={() => removeBookHandler(obj)} variant="danger">
                 Remove
               </Button>{" "}
@@ -107,7 +104,11 @@ const NavBarButtonModal = (props) => {
           <thead>
             <tr>
               <th>Title</th>
-              <th>Quantity</th>
+              <th
+              style={{
+                textAlign:'center'
+              }}
+              >Quantity</th>
               <th>Price</th>
               <th>Delete</th>
             </tr>
@@ -119,7 +120,9 @@ const NavBarButtonModal = (props) => {
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button className={classes.orderBtn}>Order</Button>
+        <Button variant="warning" className={classes.orderBtn}>
+          Order
+        </Button>{" "}
       </Modal.Footer>
     </Modal>
   );
