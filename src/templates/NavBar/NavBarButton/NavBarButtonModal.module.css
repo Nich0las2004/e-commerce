@@ -6,25 +6,13 @@
   width: 6rem;
 }
 
+.orderBtn:hover{
+  background: rgb(249, 164, 6);
+}
+
 * {
   font-family: sans-serif;
 }
-
-/* .orderBtn {
-  width: 6rem;
-  background: rgb(236, 158, 12);
-  border-color: rgb(236, 158, 12);
-} */
-
-/* .orderBtn:hover {
-  background: orange;
-  border-color: orange;
-} */
-
-/* .orderBtn:active {
-  background: orange;
-  background:none;
-} */
 
 .buttons {
   width: 1.5rem;

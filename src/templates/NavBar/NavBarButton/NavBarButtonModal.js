@@ -44,7 +44,7 @@ const NavBarButtonModal = (props) => {
       <tr key={Math.random()} style={{}}>
         {obj.repeat > 0 && (
           <Fragment>
-            <td> {obj.title}</td>
+            <td>{obj.title}</td>
             <td
               style={{
                 display: "flex",
@@ -87,6 +87,20 @@ const NavBarButtonModal = (props) => {
     (total, book) => total + book.price * book.repeat,
     0
   );
+
+  const orderHandler = () => {
+    fetch(
+      "https://react-http-21b19-default-rtdb.europe-west1.firebasedatabase.app/prices.json",
+      {
+        method: "POST",
+        body: JSON.stringify({ price: `$${totalSelectedPrice.toFixed(2)}` }),
+        headers: { "Content-Type": "application/json" },
+      }
+    )
+      .then(() => alert("stored"))
+      .catch((error) => alert(error));
+  };
+
   return (
     <Modal
       {...props}
@@ -105,10 +119,12 @@ const NavBarButtonModal = (props) => {
             <tr>
               <th>Title</th>
               <th
-              style={{
-                textAlign:'center'
-              }}
-              >Quantity</th>
+                style={{
+                  textAlign: "center",
+                }}
+              >
+                Quantity
+              </th>
               <th>Price</th>
               <th>Delete</th>
             </tr>
@@ -116,11 +132,15 @@ const NavBarButtonModal = (props) => {
           <tbody>{chosenBooks}</tbody>
         </Table>
 
-        <p>Total Price: ${totalSelectedPrice.toFixed(2)}</p>
+        <h4>Total Price: ${totalSelectedPrice.toFixed(2)}</h4>
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
-        <Button variant="warning" className={classes.orderBtn}>
+        <Button
+          variant="warning"
+          className={classes.orderBtn}
+          onClick={orderHandler}
+        >
           Order
         </Button>{" "}
       </Modal.Footer>
