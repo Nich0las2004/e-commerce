@@ -2,12 +2,15 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Table from "react-bootstrap/Table";
 import { useDispatch, useSelector } from "react-redux";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 import classes from "./NavBarButtonModal.module.css";
 import { buttonActions } from "../../../store";
 
 const NavBarButtonModal = (props) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
 
   const bookDetails = useSelector((state) => state.books.bookDetails);
@@ -89,6 +92,10 @@ const NavBarButtonModal = (props) => {
   );
 
   const orderHandler = () => {
+    setIsLoading(true);
+
+    console.log("storing data");
+
     fetch(
       "https://react-http-21b19-default-rtdb.europe-west1.firebasedatabase.app/prices.json",
       {
@@ -97,8 +104,9 @@ const NavBarButtonModal = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     )
-      .then(() => alert("stored"))
-      .catch((error) => alert(error));
+      .then(() => setIsLoading(false))
+      // .then()
+      .catch((error) => alert(`Error: ${error}`));
   };
 
   return (
@@ -108,42 +116,48 @@ const NavBarButtonModal = (props) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered
     >
-      <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          Selected Books
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Table striped bordered hover>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th
-                style={{
-                  textAlign: "center",
-                }}
-              >
-                Quantity
-              </th>
-              <th>Price</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          <tbody>{chosenBooks}</tbody>
-        </Table>
-
-        <h4>Total Price: ${totalSelectedPrice.toFixed(2)}</h4>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-        <Button
-          variant="warning"
-          className={classes.orderBtn}
-          onClick={orderHandler}
-        >
-          Order
-        </Button>{" "}
-      </Modal.Footer>
+      <Fragment>
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Selected Books
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {isLoading && <LoadingSpinner />}
+          {!isLoading && (
+            <Fragment>
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th
+                      style={{
+                        textAlign: "center",
+                      }}
+                    >
+                      Quantity
+                    </th>
+                    <th>Price</th>
+                    <th>Delete</th>
+                  </tr>
+                </thead>
+                <tbody>{chosenBooks}</tbody>
+              </Table>
+              <h4>Total Price: ${totalSelectedPrice.toFixed(2)}</h4>
+            </Fragment>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+          <Button
+            variant="warning"
+            className={classes.orderBtn}
+            onClick={orderHandler}
+          >
+            Order
+          </Button>{" "}
+        </Modal.Footer>
+      </Fragment>
     </Modal>
   );
 };
