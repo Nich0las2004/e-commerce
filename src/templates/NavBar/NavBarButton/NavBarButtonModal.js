@@ -10,6 +10,7 @@ import { buttonActions } from "../../../store";
 
 const NavBarButtonModal = (props) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [ordered, setOrdered] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -93,8 +94,8 @@ const NavBarButtonModal = (props) => {
 
   const orderHandler = () => {
     setIsLoading(true);
+    setOrdered(false);
 
-    console.log("storing data");
 
     fetch(
       "https://react-http-21b19-default-rtdb.europe-west1.firebasedatabase.app/prices.json",
@@ -104,8 +105,10 @@ const NavBarButtonModal = (props) => {
         headers: { "Content-Type": "application/json" },
       }
     )
-      .then(() => setIsLoading(false))
-      // .then()
+      .then(() => {
+        setIsLoading(false);
+        setOrdered(true);
+      })
       .catch((error) => alert(`Error: ${error}`));
   };
 
@@ -124,6 +127,7 @@ const NavBarButtonModal = (props) => {
         </Modal.Header>
         <Modal.Body>
           {isLoading && <LoadingSpinner />}
+
           {!isLoading && (
             <Fragment>
               <Table striped bordered hover>
@@ -146,9 +150,12 @@ const NavBarButtonModal = (props) => {
               <h4>Total Price: ${totalSelectedPrice.toFixed(2)}</h4>
             </Fragment>
           )}
+          {ordered && (
+            <h5 style={{ textAlign: "center" }}>Books Have Been Ordered :)</h5>
+          )}
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
+          <Button onClick={() => { dispatch(buttonActions.clearData()); setOrdered(false) ;props.onHide() }}>Close</Button>
           <Button
             variant="warning"
             className={classes.orderBtn}

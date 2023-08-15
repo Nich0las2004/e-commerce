@@ -18,6 +18,11 @@ const booksSlice = createSlice({
         state.books--;
       }
     },
+    clearData(state){
+      state.books = 0;
+      state.totalPrice = 0;
+      state.bookDetails = [];
+    },
     removeBook(state,action){
       state.books -= action.payload
     },
